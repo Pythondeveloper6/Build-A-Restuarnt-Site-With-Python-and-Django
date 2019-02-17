@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block body %}
+    
+
+    
+      <div class="main-wrap">
+        <div class="cover_1 cover_sm">
+          <div class="img_bg" style="background-image: url({% static 'site_static/img/slider-1.jpg' %})" data-stellar-background-ratio="0.5">
+            <div class="container">
+              <div class="row align-items-center justify-content-center">
+                <div class="col-md-7 text-center" data-aos="fade-up">
+                  <h2 class="heading mb-4">{{post_detail}}</h2>
+
+                  <div class="post-info">
+                    <div class="date-info">{{post_detail.created}}</div>
+                    <div class="category-info"><span class="seperator">|</span>In <a href="#" data-title="View all posts in Lifestyle" title="View all posts in Lifestyle">{{post_detail.category}}</a></div>
+                    <div class="author-info"><span class="seperator">|</span>By <a href="#">{{post_detail.author}}</a></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .cover_1 -->
+
+       <div class="section">
+          <div class="container">
+            
+            <div class="row">
+
+              <div class="col-md-8">
+                <p>{{post_detail.content}}</p>
+                
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                  <div class="tagcloud">
+                    
+                    {% for tag in post_detail.tags.all %}  
+                        <a href="{% url 'blog:post_by_tag' tag %}" class="tag-cloud-link">{{tag.name}}</a>
+                    {% endfor %}
+                  </div>
+                </div>
+
+
+                <div class="pt-5 mt-5">
+                  <h3 class="mb-5"> Comments</h3>
+                  <ul class="comment-list">
+                    
+                    {% for comment in comments %}
+                      <li class="comment">
+                        <div class="vcard bio">
+                          <img src="img/person_1.jpg" alt="Image placeholder">
+                        </div>
+                        <div class="comment-body">
+                          <h3>{{comment.user}}</h3>
+                          <div class="meta">{{comment.created}}</div>
+                          <p>{{comment.content}}</p>
+                        </div>
+
+
+
+                      </li>
+                    {% endfor %}
+                  </ul>
+                  <!-- END comment-list -->
+                  
+                  <div class="comment-form-wrap pt-5">
+                    <h3 class="mb-5">Leave a comment</h3>
+                    <form method="POST" class="p-5 bg-light">
+                        {% csrf_token %}
+                        {% bootstrap_form comment_form %}
+                        {% buttons %}
+                            <button type="submit" class="btn btn-primary">Leave A Comment</button>
+                        {% endbuttons %}
+                    </form>
+                  </div>
+                </div>
+
+              </div> <!-- .col-md-8 -->
+              <div class="col-md-4 sidebar">
+                <div class="sidebar-box">
+                  <form action="{% url 'blog:post_list' %}" method="GET" class="search-form">
+                    <div class="form-group">
+                      <span class="icon fa fa-search"></span>
+                      <input type="text" class="form-control" name='q' value="{{request.Get.q}}" placeholder="Type a keyword and hit enter">
+                    </div>
+                  </form>
+                </div>
+                <div class="sidebar-box">
+                  <div class="categories">
+                    <h3>Categories</h3>
+                    {% for category in categories %}                      
+                    <li><a href="{% url 'blog:post_by_category' category %}">{{category}}</a></li>
+
+                    {% endfor %}
+                  </div>
+                </div>
+
+
+                <div class="sidebar-box">
+                  <h3>Tag Cloud</h3>
+                  <div class="tagcloud">
+                      
+                      {% for tag in all_tags %}
+                        <a href="{% url 'blog:post_by_tag' tag %}" class="tag-cloud-link">{{tag}}</a>
+                      {% endfor %}
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div>
+
+            
+          </div>
+        </div> <!-- .section -->
+      
+
+
+      </div> <!-- .main-wrap -->
+      
+      {% endblock body %}

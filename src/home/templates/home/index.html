@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+  
+
+  
+      <div class="main-wrap">
+        <div class="cover_1">
+          <div class="img_bg" style="background-image: url({% static 'site_static/img/slider-1.jpg' %})" data-stellar-background-ratio="0.5">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-12" data-aos="fade-up">
+                  <h2 class="heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsa sint amet aliquam velit minima tenetur quisquam beatae molestiae possimus dicta.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .cover_1 -->
+
+        <div class="section services-section">
+          <div class="container">
+             
+            <div class="row">
+              <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                <div class="media feature-icon d-block text-center">
+                  <div class="icon">
+                    <span class="flaticon-soup"></span>
+                  </div>
+                  <div class="media-body">
+                    <h3>Quality Cuisine</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur suscipit repudiandae facilis incidunt unde saepe</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="media feature-icon d-block text-center">
+                  <div class="icon">
+                    <span class="flaticon-vegetables"></span>
+                  </div>
+                  <div class="media-body">
+                    <h3>Fresh Food</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur suscipit repudiandae facilis incidunt unde saepe</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="media feature-icon d-block text-center">
+                  <div class="icon">
+                    <span class="flaticon-pancake"></span>
+                  </div>
+                  <div class="media-body">
+                    <h3>Friendly Staff</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur suscipit repudiandae facilis incidunt unde saepe</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+                <div class="media feature-icon d-block text-center">
+                  <div class="icon">
+                    <span class="flaticon-tray"></span>
+                  </div>
+                  <div class="media-body">
+                    <h3>Easy Reservation</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur suscipit repudiandae facilis incidunt unde saepe</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+
+        <div class="section">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-7 text-center"  data-aos="fade-up">
+                <h2 class="mb-4">Our Specialties</h2>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum voluptatem odio expedita laborum fugit repudiandae dolorem consectetur.</p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+        
+        <div class="section pt-0 pb-0">
+
+          <div class="menus d-flex bg-light">
+
+            {% for meal in meals %}
+              
+            <div class="d-flex item">
+              <div class="image" style="background-image: url({{meal.image.url}});" data-aos="fade"></div>
+              <div class="text">
+                <h3>{{meal.name}}</h3>
+                <p>{{meal.description|truncatewords:15}}</p>
+                <p class="price">${{meal.price}}</p>
+              </div>
+            </div> <!-- .item -->
+
+            {% endfor %}
+
+          </div>
+        </div> <!-- .section -->
+
+
+
+        <div class="section">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-8" data-aos="fade-up">
+  
+                  <h2 class="mb-5 text-center">Menu List with Price</h2>
+  
+                  <ul class="nav site-tab-nav" id="pills-tab" role="tablist">
+                    {% for category in categories %}
+                      <li class="nav-item">
+                        <a class="nav-link " id="{{category}}-tab" data-toggle="pill" href="#{{category}}" role="tab" aria-controls="{{category}}" aria-selected="true">{{category}}</a>
+                      </li>
+                    {% endfor %}
+  
+                  </ul>
+  
+  
+                  <div class="tab-content" id="pills-tabContent">
+  
+                    {% for category in categories %}
+  
+                      <div class="tab-pane fade show" id="{{category}}" role="tabpanel" aria-labelledby="{{category}}-tab">
+                        
+                        {% for meal in meal_list %}
+                            {% if meal.category == category%}
+                              <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                  <h3><a href="{% url 'meals:meal_detail' meal.slug %}">{{meal.name}}</a></h3>
+                                  <p>{{meal.description|truncatewords:20}}</p>
+                                </div>
+                                <div class="price order-2">
+                                  <strong>${{meal.price}}</strong>
+                                </div>
+                              </div> <!-- .menu-food-item -->
+                            {% endif %}
+                        {% endfor %}
+  
+                      </div>
+                      
+                    {% endfor %}
+                  </div>
+  
+  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="section bg-light">
+          <div class="container">
+            <div class="row justify-content-center mb-5" data-aos="fade-up">
+              <div class="col-md-8  text-center">
+                <h2 class="mb-3">Events &amp; News</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fuga, alias distinctio voluptatum magni voluptatibus.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+
+               {% for post in posts %}
+                 
+              
+                <div class="media d-block d-lg-flex mb-5"  data-aos="fade-up" data-aos-delay="100">
+                  <figure class="mr-4 horizontal">
+                    <img src="{{post.image.url}}" alt="Image placeholder" class="img-fluid">
+                  </figure>
+                  <div class="media-body">
+                    <h3><a href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a></h3>
+                    <p class="post-meta"><span><span class="fa fa-calendar"></span> {{post.created}}</span></p>
+                    <p>{{post.content|truncatewords:10}}</p>
+                    <p><a href="{% url 'blog:post_detail' post.id %}" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
+                  </div>
+                </div> <!-- .media -->
+                {% endfor %} 
+
+
+              </div> <!-- .col-md-6 -->
+
+              <div class="col-lg-6">
+                <div class="media d-block mb-5" data-aos="fade-up"  data-aos-delay="400">
+                  <figure>
+                    <a href="#"><img src="{{latest_post.image.url}}" alt="Image placeholder" class="img-fluid"></a>
+                  </figure>
+                  <div class="media-body">
+                    <h3><a href="{% url 'blog:post_detail' latest_post.id %}">{{latest_post.title}}</a></h3>
+                    <p class="post-meta"><span><span class="fa fa-calendar"></span> April 22, 2018</span></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus</p>
+                    <p><a href="{% url 'blog:post_detail' latest_post.id %}" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
+                  </div>
+                </div> <!-- .media -->
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+
+        <div class="section">
+            <div class="container">
+              <div class="row justify-content-center mb-5" data-aos="fade-up">
+                <div class="col-md-8  text-center">
+                  <h2 class="mb-3">Why Choose Us</h2>
+                  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fuga, alias distinctio voluptatum magni voluptatibus.</p>
+                </div>
+              </div>
+              <div class="row large-gutters">
+                <div class="col-md-6"  data-aos="fade-up" data-aos-delay="200">
+                  <img src="{% static 'site_static/img/img_2.jpg' %}" alt="Image placeholder" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                  <div class="accordion" id="accordion">
+                    {% for info in why_choose_us %}
+  
+                      <div class="accordion-item">
+                        <h3 class="mb-0">
+                          <a class="btn-block p-3" data-toggle="collapse" href="#collapse{{info.id}}" role="button" aria-expanded="true" aria-controls="collapseOne">{{info.title}} <span class="icon"></span></a>
+                        </h3>
+                        <div id="collapse{{info.id}}" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="p-3">
+                            <p>{{info.content}}</p>
+                          </div>
+                        </div>
+                      </div> <!-- .accordion-item -->
+  
+                    {% endfor %}   
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- .section -->
+
+
+        
+
+      </div> <!-- .main-wrap -->
+      {% endblock body %}

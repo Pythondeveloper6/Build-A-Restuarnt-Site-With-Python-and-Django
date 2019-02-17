@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+  
+
+  
+      <div class="main-wrap">
+        <div class="cover_1">
+          <div class="img_bg" style="background-image: url({% static 'site_static/img/slider-1.jpg' %})" data-stellar-background-ratio="0.5">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-12" data-aos="fade-up">
+                  <h2 class="heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsa sint amet aliquam velit minima tenetur quisquam beatae molestiae possimus dicta.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .cover_1 -->
+
+        {% comment %}
+
+        <div class="section">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-7 text-center"  data-aos="fade-up">
+                <h2 class="mb-4">Our Specialties</h2>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum voluptatem odio expedita laborum fugit repudiandae dolorem consectetur.</p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+                
+
+        <div class="section pt-0 pb-0">
+
+          <div class="menus d-flex bg-light">
+            <div class="d-flex item">
+              <div class="image" style="background-image: url(img/img_1.jpg);" data-aos="fade"></div>
+              <div class="text">
+                <h3>Grilled Egg With Garlic</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                <p class="price">$5.00</p>
+              </div>
+            </div> <!-- .item -->
+
+            <div class="d-flex item">
+              <div class="image order-2 order-md-1"  style="background-image: url(img/img_2.jpg);" data-aos="fade" data-aos-delay="100"></div>
+              <div class="text order-1 order-md-2">
+                <h3>Organic Tomato Salad</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                <p class="price">$6.00</p>
+              </div>
+            </div> <!-- .item -->
+
+            <div class="d-flex item">
+              <div class="image order-1 order-md-2 order-lg-2 order-xl-1" style="background-image: url(img/img_3.jpg);" data-aos="fade" data-aos-delay="200"></div>
+              <div class="text order-2 order-md-1 order-lg-1 order-xl-2">
+                <h3>Flatbread</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                <p class="price">$9.00</p>
+                
+              </div>
+            </div> <!-- .item -->
+
+            <div class="d-flex item">
+              <div class="image order-2" style="background-image: url(img/img_4.jpg);" data-aos="fade" data-aos-delay="300"></div>
+              <div class="text order-1 mb-3">
+                <h3>Rack Of Lamb</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                <p class="price">$13.00</p>
+              </div>
+            </div> <!-- .item -->
+
+            <div class="d-flex item">
+              <div class="image order-1 order-lg-1 order-xl-2" style="background-image: url(img/img_5.jpg);" data-aos="fade" data-aos-delay="400"></div>
+              <div class="text order-2 order-lg-2 order-xl-1">
+                <h3>Eggplant Parmigiana</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                <p class="price">$9.00</p>
+              </div>
+            </div> <!-- .item -->
+
+            <div class="d-flex item">
+              <div class="image order-2 order-md-1 order-lg-1 order-xl-2" style="background-image: url(img/img_6.jpg);" data-aos="fade" data-aos-delay="500"></div>
+              <div class="text order-1 order-md-2 order-lg-2 order-xl-1">
+                <h3>Spicy Meatballs</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                <p class="price">$7.00</p>
+              </div>
+            </div> <!-- .item -->
+
+          </div>
+        </div> 
+        {% endcomment %}
+
+        <div class="section">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-8" data-aos="fade-up">
+
+                <h2 class="mb-5 text-center">Menu List with Price</h2>
+
+                <ul class="nav site-tab-nav" id="pills-tab" role="tablist">
+                  {% for category in categories %}
+                    <li class="nav-item">
+                      <a class="nav-link " id="{{category}}-tab" data-toggle="pill" href="#{{category}}" role="tab" aria-controls="{{category}}" aria-selected="true">{{category}}</a>
+                    </li>
+                  {% endfor %}
+
+                </ul>
+
+
+                <div class="tab-content" id="pills-tabContent">
+
+                  {% for category in categories %}
+
+                    <div class="tab-pane fade show" id="{{category}}" role="tabpanel" aria-labelledby="{{category}}-tab">
+                      
+                      {% for meal in meal_list %}
+                          {% if meal.category == category%}
+                            <div class="d-block d-md-flex menu-food-item">
+                              <div class="text order-1 mb-3">
+                                <h3><a href="{% url 'meals:meal_detail' meal.slug %}">{{meal.name}}</a></h3>
+                                <p>{{meal.description}}</p>
+                              </div>
+                              <div class="price order-2">
+                                <strong>${{meal.price}}</strong>
+                              </div>
+                            </div> <!-- .menu-food-item -->
+                          {% endif %}
+                      {% endfor %}
+
+                    </div>
+                    
+                  {% endfor %}
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+
+      </div> <!-- .main-wrap -->
+      
+      {% endblock body %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block body %}
+  
+
+  
+      <div class="main-wrap">
+        <div class="cover_1 cover_sm">
+          <div class="img_bg" style="background-image: url({% static 'site_static/img/slider-1.jpg' %})" data-stellar-background-ratio="0.5">
+            <div class="container">
+              <div class="row align-items-center justify-content-center">
+                <div class="col-md-7" data-aos="fade-up">
+                  <h2 class="heading">Contact Us</h2>
+                  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo saepe dolorum dolorem, iste officia voluptates! Sint repudiandae, soluta voluptatem delectus iure, eaque, harum expedita, nisi aliquam magni odio perferendis ipsum!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .cover_1 -->
+        
+        <div class="section" data-aos="fade-up">
+          <div class="container">
+            <div class="row justify-content-center mb-5">
+              <div class="col-md-8  text-center">
+                <h2 class="mb-3">Contact Form</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fuga, alias distinctio voluptatum magni voluptatibus.</p>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-10 p-5 form-wrap">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    {% endbuttons %}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+
+        <div class="map-wrap" id="map"  data-aos="fade"></div>
+
+        <div class="section" data-aos="fade">
+          <div class="container">
+            <div class="row justify-content-center mb-5">
+              <div class="col-md-7 text-center"  data-aos="fade-up">
+                <h2 class="mb-4">Customer's Reviews</h2>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center" data-aos="fade-up">
+              <div class="col-md-8">
+                <div class="owl-carousel home-slider-loop-false">
+
+                
+                  <div class="item">
+                    <blockquote class="testimonial">
+                      <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quaerat recusandae molestias incidunt sapiente sit numquam delectus mollitia! Non laudantium impedit voluptas consequatur corrupti. Cumque consequuntur nemo eos et error!&rdquo;</p>
+                      <div class="author">
+                        <img src="img/person_1.jpg" alt="Image placeholder" class="mb-3">
+                        <h4>Maxim Smith</h4>
+                        <p>CEO, Founder</p>
+                      </div>
+                    </blockquote>
+                  </div>
+                  <div class="item">
+                    <blockquote class="testimonial">
+                      <p>&ldquo;Sint adipisci laborum dolorum ipsa quidem alias ipsum aperiam aut! Quis rerum soluta dolorem iure nihil velit error sequi? Dignissimos accusantium adipisci unde officia? Dolores aut sequi dolorum repellendus quod.&rdquo;</p>
+                      <div class="author">
+                        <img src="img/person_2.jpg" alt="Image placeholder" class="mb-3">
+                        <h4>Geert Green</h4>
+                        <p>CEO, Founder</p>
+                      </div>
+                    </blockquote>
+                  </div>
+                  <div class="item">
+                    <blockquote class="testimonial">
+                      <p>&ldquo;Ratione alias iure ab facere quia aliquam dolor et voluptates esse nihil corporis distinctio hic ea quo ducimus autem cum amet. Quos accusamus iusto porro nulla temporibus numquam commodi soluta.&rdquo;</p>
+                      <div class="author">
+                        <img src="img/person_3.jpg" alt="Image placeholder" class="mb-3">
+                        <h4>Dennis Roman</h4>
+                        <p>CEO, Founder</p>
+                      </div>
+                    </blockquote>
+                  </div>
+                  <div class="item">
+                    <blockquote class="testimonial">
+                      <p>&ldquo;Ad quod aspernatur ipsa. Numquam expedita delectus qui ad explicabo voluptas eos vel reiciendis magnam rerum quaerat quisquam accusantium quae saepe ipsam ullam ut ea molestiae porro. Recusandae veniam maxime.&rdquo;</p>
+                      <div class="author">
+                        <img src="img/person_2.jpg" alt="Image placeholder" class="mb-3">
+                        <h4>Geert Green</h4>
+                        <p>CEO, Founder</p>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div> <!-- .section -->
+
+  
+
+      </div> <!-- .main-wrap -->
+      
+      {% endblock body %}

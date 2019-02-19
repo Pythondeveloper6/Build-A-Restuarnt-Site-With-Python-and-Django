@@ -1,5 +1,5 @@
-Build A Restuarnt Site With Python and Django
-get the course from here : 
+#Build A Restuarnt Site With Python and Django
+- get the course from here : 
     https://www.udemy.com/build-a-restuarnt-site-with-python-and-django/?couponCode=YOUTUBE2019
 
 In this course you'll learn how to build a Restaurant Website with Django and Python!
@@ -7,7 +7,7 @@ Django overwhelms a lot of people, and it doesn't have to! If you understand jus
 In this course I'll be developing on a my Mac machine, but you should be able to follow along if you're on a Windows or Linux.  I'll show you how to download and install Python and Django 
 You'll be able to build Django websites and simple business websites when you're finished with this course.
 
-we will build a restaurant system with:
+- we will build a restaurant system with:
     - meals
     - ordered a meal
     - reserver a table
@@ -17,19 +17,19 @@ we will build a restaurant system with:
 
 
 
-WHAT DO YOU NEED TO TAKE THIS COURSE?
+- WHAT DO YOU NEED TO TAKE THIS COURSE?
     - You don't need any tools or special skills to take this course. I'll show you how to download and install everything you'll need for free (Django, Python, and the VSCode). 
       Other than that, you'll just need a computer with Internet Access!
 
 
 
-DO I NEED TO KNOW PYTHON TO TAKE THIS COURSE?
+- DO I NEED TO KNOW PYTHON TO TAKE THIS COURSE?
     - simple python basics!  Django is built for Python. It's a web framework for Python. So it's a good idea to learn Python if you want to use Django. But you don't have to know advanced Python to take this course. I'll walk you through everything you need to know.
       Building websites with Django is very easy , and the course will make it very fun
 
 
 
-What you’ll learn
+- What you’ll learn
     - Introductory Django
     - How to Build Simple business Websites With Django
     - Download and Install Python
@@ -47,9 +47,9 @@ What you’ll learn
 
 
 
-Are there any course requirements or prerequisites?
+- Are there any course requirements or prerequisites?
     - simple python skills is needed
 
-Who this course is for:
+- Who this course is for:
     - This course is aimed towards absolute beginners who want to learn how to  build Websites with Django and Python
 

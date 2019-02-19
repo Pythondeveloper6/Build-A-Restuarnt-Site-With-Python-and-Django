@@ -1,4 +1,4 @@
-#Build A Restuarnt Site With Python and Django
+# Build A Restuarnt Site With Python and Django
 - get the course from here : 
     https://www.udemy.com/build-a-restuarnt-site-with-python-and-django/?couponCode=YOUTUBE2019
 

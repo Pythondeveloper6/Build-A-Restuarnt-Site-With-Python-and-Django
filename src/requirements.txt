@@ -2,5 +2,5 @@ Django==2.1.5
 django-bootstrap4==0.0.7
 django-summernote==0.8.11.4
 django-taggit==0.23.0
-Pillow==5.3.0
+Pillow==6.2.0
 pytz==2018.7
